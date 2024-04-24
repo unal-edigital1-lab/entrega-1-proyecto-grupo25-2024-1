@@ -31,6 +31,8 @@ Esta presentara cambios visuales en funcion de su estado que variara de manera b
  * Salud
  * Hambre
  * Comodidad
+ * Energia
+
 
  La visualizalizacion general cambiara dependiendo de la suma de los estados, 
   
@@ -116,7 +118,7 @@ Se usara un conjunto de 4 botones:
 
  Botones de interaccion, el boton 1 se encargara de navegar entre las caracteristicas de la mascota, es decir:
 
- ![Esquema del display de 7 segmentos](imagenes/Tamagochi.drawio.png)
+ ![Tamagochi Flujo](imagenes/Tamagochi.drawio.png)
 
  
 
@@ -124,4 +126,15 @@ Se usara un conjunto de 4 botones:
 
 Este hace referencia al comportamiento del tamagochi con estimulos externos, tomando la caracteristica de "comodidad", esta se sensara por medio de un sensor de temperatura, este es un conversor analogo digital, seria el modulo MAX6675, el cual tiene interfaz SPI, al igual que la pantalla, por lo que se realizara una a dicion al modulo SPI.
 
+ ![MAX6675](imagenes/MAX6675.png)
+
+
 Se establecera la señal de temperatura de manera que si se superan los 20 grados celcius, o es inferior a 15, la temperatura no sera comoda, es decir el optimo es un margen de 5 grados entre 15 y 20 grados celcius.
+
+### Uso de display 7 segmentos
+
+En los displays 7 segmentos se mostrara la informacion de las estadisticas del tamagochi, ademas, se usara el punto de cada display para señalar el punto en el que se encuentre en el flujo del uso de pulsadores, es decir, si se encuentra ubicado en alimentar al tamagochi, el punto del display que muestra esta estadistica se encendera.
+
+Los estados de cada una de las caracteristicas se mostraran como 1 si son buenas y 0 si son malas.
+
+Ademas, los estados cambiaran en el transcurso del tiempo, con el paso del tiempo se desarrollara hambre, se bajara el animo y asi con las ddemas caracteristicas, se espera que esto sea a diferentes velocidades, por lo que es nesesario la implementacion de diferentes divisores de frecuencia para las diferentes caracteristicas, estos tiempos se encuentran pendientes por definir.
