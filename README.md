@@ -47,6 +47,7 @@ Esta se realizara con una pantalla de 8x8 leds con un modulo MAX7219, el cual pl
 
 ![Esquema del display de 7 segmentos](imagenes/8x8_image.webp)
 
+Donde se busca presentar las siguientes imagenes:
 
                         ___________________
                         | 0 0 0 0 0 0 0 0 |
@@ -83,6 +84,10 @@ Esta se realizara con una pantalla de 8x8 leds con un modulo MAX7219, el cual pl
                         | 0 0 0 0 0 0 0 0 |
                         |-----------------|
 
+El funcionamiento de la pantalla requiere un barrido, por lo cual imprecindible el uso de un divisor de frecuencia para poder tener una visualizacion "estatica" a la vista del ususario.
+
+Resa nesesario el uso de reset para la presentacion de las imagenes ya que por cuestiones de sincronismo, la imagen puede verse dezplazada, esto planteara un punto de inicio en el mapeo de la imagen.
+
 
 
                           _______________
@@ -96,8 +101,27 @@ Esta se realizara con una pantalla de 8x8 leds con un modulo MAX7219, el cual pl
               avail <----|               |
                          |_______________|
 
+este modulo describe el funcionamiento de un maestro para la comunicación SPI, una forma común de enviar datos entre microcontroladores y dispositivos periféricos. Funciona con un reloj del sistema y una señal de reset para inicializarlo. Cuando se activa la señal de inicio (start), comienza una nueva transmisión. Durante la transmisión, se mueven los datos de entrada (data_in) a través de un registro de desplazamiento (shift_reg) y se envían uno a uno, contando los pulsos del reloj. Al mismo tiempo, se reciben datos desde el dispositivo conectado (miso) y se colocan en un registro de salida (data_out). Una vez que se han enviado y recibido todos los bits, se finaliza la transmisión y se indica que el módulo está ocupado (busy) hasta que esté listo para una nueva transmisión.
+
+Este modulo se compartio por medio de  https://github.com/unal-edigital1/2024-1/blob/master/labs/buses/SPI/spi.md y este establece la vase de funcionamiento de la pntalla a implementar.
 
 
+### Interaccion
 
+Se usara un conjunto de 4 botones:
 
+ RESET, que borrara los registros guardados durante la secion pasada de juego y reestablecera el disporitivo, en conjunto con la señal de CLK, al opimirlo por 5 segundos hara el proseso descrito.
 
+ TEST, que sera un control maestro del dispositivo, se podra acceder a un cambio manual de los estados y manejo de vistas.
+
+ Botones de interaccion, el boton 1 se encargara de navegar entre las caracteristicas de la mascota, es decir:
+
+ ![Esquema del display de 7 segmentos](imagenes/Tamagochi.drawio.png)
+
+ 
+
+### Interaccion Automatica
+
+Este hace referencia al comportamiento del tamagochi con estimulos externos, tomando la caracteristica de "comodidad", esta se sensara por medio de un sensor de temperatura, este es un conversor analogo digital, seria el modulo MAX6675, el cual tiene interfaz SPI, al igual que la pantalla, por lo que se realizara una a dicion al modulo SPI.
+
+Se establecera la señal de temperatura de manera que si se superan los 20 grados celcius, o es inferior a 15, la temperatura no sera comoda, es decir el optimo es un margen de 5 grados entre 15 y 20 grados celcius.
