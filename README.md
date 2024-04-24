@@ -27,38 +27,35 @@ A continuacion se describirá el hardware y su implementacion en el proyecto:
 
 Esta presentara cambios visuales en funcion de su estado que variara de manera binaria 
 
- * Animo
- * Salud
- * Hambre
- * Comodidad
+ * Animo (A)
+ * Salud (S)
+ * Hambre (H)
+ * Comodidad (C)
 
 
  La visualizalizacion general cambiara dependiendo de la suma de los estados. en total los estados se ven representados por informacion de 4Bits tal que:
 
-        0000 |
-        0001 |
-        0010 |  Patron 1
-        0011 |
+        A S H C  |  Estados de la mascota
 
-        0100 |
-        0101 |
-        0110 |  Patron 2
-        0111 |
+        0 0 0 0  |
+        0 0 0 1  |
+        0 0 1 0  |  Patron 1
+        0 0 1 1  |
 
-        1000 |
-        1001 |
-        1010 |  Patron 3
-        1011 |
+        0 1 0 0  |
+        0 1 0 1  |
+        0 1 1 0  |  Patron 2
+        0 1 1 1  |
 
-        1100 |
-        1101 |
-        1110 | Patron 4
-        1111 |
+        1 0 0 0  |
+        1 0 0 1  |
+        1 0 1 0  |  Patron 3
+        1 0 1 1  |
 
-
-  
-
-
+        1 1 0 0  |
+        1 1 0 1  |
+        1 1 1 0  | Patron 4
+        1 1 1 1  |
 
 
 
@@ -126,17 +123,18 @@ El funcionamiento de la pantalla requiere un barrido, por lo cual imprecindible 
 
 Resa nesesario el uso de reset para la presentacion de las imagenes ya que por cuestiones de sincronismo, la imagen puede verse dezplazada, esto planteara un punto de inicio en el mapeo de la imagen.
 
-               _______________       ______________________       _________________
-              |      FSM      |     |       SPI MASTER     |     | O O O O O O O O |
-              |     CARAS     |   --| >clk                 |     | O ▓ ▓ O O ▓ ▓ O |
-  50Mhz clk --|               |   --| rst                  |     | O ▓ ▓ O O ▓ ▓ O |
-        rst --|       Reg/Val |-----| data_in [7:0]    sclk|-----| O O O O O O O O |
-              |            NC |   --| data_out [7:0]   mosi|-----| O O O O O O O O |
-  State[2:0]--|           500 |-----| freq_div[9:0]    miso|--   | O ▓ ▓ O O ▓ ▓ O |
-       init --|      spiStart |-----| start              cs|-----| O O ▓ ▓ ▓ ▓ O O |
-      done <--|       spiBusy |-----| busy                 |     | O O O ▓ ▓ O O O |
-              |      spiAvail |-----| avail                |     |   MAX7219 8X8   |
-              |_______________|     |______________________|     |_________________|
+                            _______________
+                           |               |
+                  clk -----|               |
+                  rst -----|               |
+        data_in [7:0] -----|               |---- sclk
+       data_out [7:0] <----|  SPI MASTER   |---- mosi
+       freq_div[15:0] -----|               |---- miso
+                start -----|               |---- cs
+                 busy <----|               |
+                avail <----|               |
+                           |_______________|
+
 
 este modulo describe el funcionamiento de un maestro para la comunicación SPI, una forma común de enviar datos entre microcontroladores y dispositivos periféricos. Funciona con un reloj del sistema y una señal de reset para inicializarlo. Cuando se activa la señal de inicio (start), comienza una nueva transmisión. Durante la transmisión, se mueven los datos de entrada (data_in) a través de un registro de desplazamiento (shift_reg) y se envían uno a uno, contando los pulsos del reloj. Al mismo tiempo, se reciben datos desde el dispositivo conectado (miso) y se colocan en un registro de salida (data_out). Una vez que se han enviado y recibido todos los bits, se finaliza la transmisión y se indica que el módulo está ocupado (busy) hasta que esté listo para una nueva transmisión.
 
