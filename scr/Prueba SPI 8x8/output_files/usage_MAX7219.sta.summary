@@ -1,0 +1,221 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'MAX7219:U0|clk_spi'
+Slack : -3.611
+TNS   : -31.847
+
+Type  : Slow 1200mV 85C Model Setup 'sys_clk'
+Slack : -2.478
+TNS   : -12.462
+
+Type  : Slow 1200mV 85C Model Setup '_rst[0]'
+Slack : -0.992
+TNS   : -2.976
+
+Type  : Slow 1200mV 85C Model Setup 'MAX7219:U0|state.000'
+Slack : -0.420
+TNS   : -0.930
+
+Type  : Slow 1200mV 85C Model Hold 'MAX7219:U0|clk_spi'
+Slack : 0.454
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'MAX7219:U0|state.000'
+Slack : 0.455
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'sys_clk'
+Slack : 0.498
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold '_rst[0]'
+Slack : 1.248
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'sys_clk'
+Slack : -0.147
+TNS   : -1.029
+
+Type  : Slow 1200mV 85C Model Recovery 'MAX7219:U0|state.000'
+Slack : 0.910
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'MAX7219:U0|clk_spi'
+Slack : 0.918
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'MAX7219:U0|clk_spi'
+Slack : -1.033
+TNS   : -11.354
+
+Type  : Slow 1200mV 85C Model Removal 'MAX7219:U0|state.000'
+Slack : -0.925
+TNS   : -3.700
+
+Type  : Slow 1200mV 85C Model Removal 'sys_clk'
+Slack : 0.089
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'sys_clk'
+Slack : -3.000
+TNS   : -13.409
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width '_rst[0]'
+Slack : -3.000
+TNS   : -7.461
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MAX7219:U0|clk_spi'
+Slack : -1.487
+TNS   : -19.331
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MAX7219:U0|state.000'
+Slack : -1.487
+TNS   : -5.948
+
+Type  : Slow 1200mV 0C Model Setup 'MAX7219:U0|clk_spi'
+Slack : -3.195
+TNS   : -29.032
+
+Type  : Slow 1200mV 0C Model Setup 'sys_clk'
+Slack : -2.309
+TNS   : -11.123
+
+Type  : Slow 1200mV 0C Model Setup '_rst[0]'
+Slack : -0.845
+TNS   : -2.535
+
+Type  : Slow 1200mV 0C Model Setup 'MAX7219:U0|state.000'
+Slack : -0.267
+TNS   : -0.532
+
+Type  : Slow 1200mV 0C Model Hold 'MAX7219:U0|clk_spi'
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'MAX7219:U0|state.000'
+Slack : 0.405
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'sys_clk'
+Slack : 0.461
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold '_rst[0]'
+Slack : 1.310
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'sys_clk'
+Slack : -0.054
+TNS   : -0.378
+
+Type  : Slow 1200mV 0C Model Recovery 'MAX7219:U0|state.000'
+Slack : 0.804
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'MAX7219:U0|clk_spi'
+Slack : 0.976
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'MAX7219:U0|clk_spi'
+Slack : -1.014
+TNS   : -11.154
+
+Type  : Slow 1200mV 0C Model Removal 'MAX7219:U0|state.000'
+Slack : -0.797
+TNS   : -3.188
+
+Type  : Slow 1200mV 0C Model Removal 'sys_clk'
+Slack : 0.069
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'sys_clk'
+Slack : -3.000
+TNS   : -13.409
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width '_rst[0]'
+Slack : -3.000
+TNS   : -7.461
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MAX7219:U0|clk_spi'
+Slack : -1.487
+TNS   : -19.331
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MAX7219:U0|state.000'
+Slack : -1.487
+TNS   : -5.948
+
+Type  : Fast 1200mV 0C Model Setup 'MAX7219:U0|clk_spi'
+Slack : -1.417
+TNS   : -8.534
+
+Type  : Fast 1200mV 0C Model Setup '_rst[0]'
+Slack : -0.648
+TNS   : -1.944
+
+Type  : Fast 1200mV 0C Model Setup 'sys_clk'
+Slack : -0.504
+TNS   : -1.278
+
+Type  : Fast 1200mV 0C Model Setup 'MAX7219:U0|state.000'
+Slack : 0.369
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'MAX7219:U0|state.000'
+Slack : 0.185
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'MAX7219:U0|clk_spi'
+Slack : 0.187
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'sys_clk'
+Slack : 0.200
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold '_rst[0]'
+Slack : 0.443
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'sys_clk'
+Slack : -0.209
+TNS   : -1.463
+
+Type  : Fast 1200mV 0C Model Recovery 'MAX7219:U0|clk_spi'
+Slack : 0.204
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'MAX7219:U0|state.000'
+Slack : 0.738
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'MAX7219:U0|clk_spi'
+Slack : -0.385
+TNS   : -4.235
+
+Type  : Fast 1200mV 0C Model Removal 'MAX7219:U0|state.000'
+Slack : -0.133
+TNS   : -0.532
+
+Type  : Fast 1200mV 0C Model Removal 'sys_clk'
+Slack : 0.040
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'sys_clk'
+Slack : -3.000
+TNS   : -10.448
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width '_rst[0]'
+Slack : -3.000
+TNS   : -6.204
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MAX7219:U0|clk_spi'
+Slack : -1.000
+TNS   : -13.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MAX7219:U0|state.000'
+Slack : -1.000
+TNS   : -4.000
+
+------------------------------------------------------------
