@@ -23,7 +23,7 @@ El tamagochi fue una pequeña mascota portatil la cual consistia en el cuidado d
 
 A continuacion se describirá el hardware y su implementacion en el proyecto: 
 
-### La mascota
+#### La mascota
 
 Esta presentara cambios visuales en funcion de su estado que variara de manera binaria 
 
@@ -31,6 +31,32 @@ Esta presentara cambios visuales en funcion de su estado que variara de manera b
  * Salud (S)
  * Hambre (H)
  * Comodidad (C)
+
+ #### La Visualizacion
+
+Se mostrara la mascota virtual en una pantalla de 8x8 controlada por el chip MAX7219 el cual usa comunicacion SPI.
+
+Ademas se implementaran los displays 7 segmentos de la GPGA para la visualizacion de indicadores de estado de la mascota.
+
+ #### El Sensor 
+
+Se implementara el uso de un termopar el cual se sensa por el chip MAX6675, que establecera comunicacion SPI con la FPGA. 
+
+#### DIagrama de caja negra 
+Acontiniacion se mostratran los diagramas de caja negra pensados para el desarrollo del proyecto:
+
+
+<!-- añadir diagramas  -->
+
+
+## Funcionamiento
+
+
+
+
+
+
+
 
 
  La visualizalizacion general cambiara dependiendo de la suma de los estados. en total los estados se ven representados por informacion de 4Bits tal que:
@@ -60,8 +86,6 @@ Esta presentara cambios visuales en funcion de su estado que variara de manera b
 
 
 ### Visualizacion
-
-Para la visualizacion de la mascota virtual, se considerara el uso de estados, es decirl por cada estado de la mascota se mostrara una "imagen" en pantalla, esta cambiara dependiendo de la suma de los estados que presente.
 
 Esta se realizara con una pantalla de 8x8 leds con un modulo MAX7219, el cual plantea una comunicacion tipo SPI, siento el MAX7219 el esclavo y la GPGA el master de la comunicacion.
 
@@ -163,6 +187,10 @@ Este hace referencia al comportamiento del tamagochi con estimulos externos, tom
 
 
 Se establecera la señal de temperatura de manera que si se superan los 20 grados celcius, o es inferior a 15, la temperatura no sera comoda, es decir el optimo es un margen de 5 grados entre 15 y 20 grados celcius.
+
+#### Posibles acicionales
+
+Se considera como un posible sensor, el sensor 
 
 ### Uso de display 7 segmentos
 
