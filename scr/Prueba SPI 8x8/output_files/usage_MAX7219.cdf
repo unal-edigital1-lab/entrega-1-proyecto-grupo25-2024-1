@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE10E22) Path("C:/Users/sebas/Documents/Quartus/Prueba SPI 8x8/output_files/") File("usage_MAX7219.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE10E22) Path("C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/output_files/") File("usage_MAX7219.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

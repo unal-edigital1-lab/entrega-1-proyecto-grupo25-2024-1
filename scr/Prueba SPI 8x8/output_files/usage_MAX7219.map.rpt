@@ -1,5 +1,5 @@
-Analysis & Elaboration report for usage_MAX7219
-Wed May 08 11:46:54 2024
+Analysis & Synthesis report for usage_MAX7219
+Thu May 09 20:10:22 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -7,12 +7,22 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Elaboration Summary
-  3. Parallel Compilation
-  4. Parameter Settings for User Entity Instance: MAX7219:U0
-  5. Analysis & Elaboration Settings
-  6. Port Connectivity Checks: "MAX7219:U0"
-  7. Analysis & Elaboration Messages
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |usage_MAX7219|MAX7219:U0|state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: MAX7219:U0
+ 14. Port Connectivity Checks: "MAX7219:U0"
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
 
 
 
@@ -37,53 +47,27 @@ https://fpgasoftware.intel.com/eula.
 
 
 +----------------------------------------------------------------------------------+
-; Analysis & Elaboration Summary                                                   ;
+; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status      ; Successful - Wed May 08 11:46:54 2024       ;
+; Analysis & Synthesis Status        ; Successful - Thu May 09 20:10:22 2024       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; usage_MAX7219                               ;
 ; Top-level Entity Name              ; usage_MAX7219                               ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; N/A until Partition Merge                   ;
-;     Total combinational functions  ; N/A until Partition Merge                   ;
-;     Dedicated logic registers      ; N/A until Partition Merge                   ;
-; Total registers                    ; N/A until Partition Merge                   ;
-; Total pins                         ; N/A until Partition Merge                   ;
-; Total virtual pins                 ; N/A until Partition Merge                   ;
-; Total memory bits                  ; N/A until Partition Merge                   ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
-; Total PLLs                         ; N/A until Partition Merge                   ;
+; Total logic elements               ; 24                                          ;
+;     Total combinational functions  ; 24                                          ;
+;     Dedicated logic registers      ; 13                                          ;
+; Total registers                    ; 13                                          ;
+; Total pins                         ; 8                                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 8           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-+----------------------------+-------------+
-
-
-+---------------------------------------------------------+
-; Parameter Settings for User Entity Instance: MAX7219:U0 ;
-+----------------+-------+--------------------------------+
-; Parameter Name ; Value ; Type                           ;
-+----------------+-------+--------------------------------+
-; Freq_KiloHZ    ; 12    ; Signed Integer                 ;
-+----------------+-------+--------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
 +------------------------------------------------------------------------------------------------------------+
-; Analysis & Elaboration Settings                                                                            ;
+; Analysis & Synthesis Settings                                                                              ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
@@ -168,50 +152,228 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------------------------------------------------------+--------------------+--------------------+
 
 
-+-----------------------------------------------+
-; Port Connectivity Checks: "MAX7219:U0"        ;
-+-------------+-------+----------+--------------+
-; Port        ; Type  ; Severity ; Details      ;
-+-------------+-------+----------+--------------+
-; IRreg[7..4] ; Input ; Info     ; Stuck at GND ;
-+-------------+-------+----------+--------------+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-8         ;   0.0%      ;
++----------------------------+-------------+
 
 
-+---------------------------------+
-; Analysis & Elaboration Messages ;
-+---------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                             ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                               ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------+---------+
+; ../usage_MAX7219.v               ; yes             ; User Verilog HDL File  ; C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v ;         ;
+; ../MAX7219.v                     ; yes             ; User Verilog HDL File  ; C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/MAX7219.v       ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary              ;
++---------------------------------------------+------------+
+; Resource                                    ; Usage      ;
++---------------------------------------------+------------+
+; Estimated Total logic elements              ; 24         ;
+;                                             ;            ;
+; Total combinational functions               ; 24         ;
+; Logic element usage by number of LUT inputs ;            ;
+;     -- 4 input functions                    ; 14         ;
+;     -- 3 input functions                    ; 7          ;
+;     -- <=2 input functions                  ; 3          ;
+;                                             ;            ;
+; Logic elements by mode                      ;            ;
+;     -- normal mode                          ; 24         ;
+;     -- arithmetic mode                      ; 0          ;
+;                                             ;            ;
+; Total registers                             ; 13         ;
+;     -- Dedicated logic registers            ; 13         ;
+;     -- I/O registers                        ; 0          ;
+;                                             ;            ;
+; I/O pins                                    ; 8          ;
+;                                             ;            ;
+; Embedded Multiplier 9-bit elements          ; 0          ;
+;                                             ;            ;
+; Maximum fan-out node                        ; _rst~input ;
+; Maximum fan-out                             ; 14         ;
+; Total fan-out                               ; 125        ;
+; Average fan-out                             ; 2.36       ;
++---------------------------------------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                              ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------+---------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name       ; Entity Name   ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------+---------------+--------------+
+; |usage_MAX7219             ; 24 (0)              ; 13 (0)                    ; 0           ; 0            ; 0       ; 0         ; 8    ; 0            ; |usage_MAX7219            ; usage_MAX7219 ; work         ;
+;    |MAX7219:U0|            ; 24 (24)             ; 13 (13)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |usage_MAX7219|MAX7219:U0 ; MAX7219       ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------+---------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------+
+; State Machine - |usage_MAX7219|MAX7219:U0|state                            ;
++----------------+----------------+--------------+---------------+-----------+
+; Name           ; state.finished ; state.TxData ; state.Address ; state.000 ;
++----------------+----------------+--------------+---------------+-----------+
+; state.000      ; 0              ; 0            ; 0             ; 0         ;
+; state.Address  ; 0              ; 0            ; 1             ; 1         ;
+; state.TxData   ; 0              ; 1            ; 0             ; 1         ;
+; state.finished ; 1              ; 0            ; 0             ; 1         ;
++----------------+----------------+--------------+---------------+-----------+
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; MAX7219:U0|state~5                    ; Lost fanout        ;
+; MAX7219:U0|state~6                    ; Lost fanout        ;
+; MAX7219:U0|state~7                    ; Lost fanout        ;
+; Total Number of Removed Registers = 3 ;                    ;
++---------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 13    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 5     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; MAX7219:U0|flag[0]                     ; 5       ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |usage_MAX7219|MAX7219:U0|flag[1]  ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |usage_MAX7219|MAX7219:U0|TxCnt[0] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |usage_MAX7219|MAX7219:U0|state    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MAX7219:U0 ;
++----------------+----------+-----------------------------+
+; Parameter Name ; Value    ; Type                        ;
++----------------+----------+-----------------------------+
+; Freq_KiloHZ    ; 12       ; Signed Integer              ;
+; IDLE           ; 000      ; Unsigned Binary             ;
+; Address        ; 001      ; Unsigned Binary             ;
+; TxData         ; 010      ; Unsigned Binary             ;
+; finished       ; 011      ; Unsigned Binary             ;
+; ON             ; 00000001 ; Unsigned Binary             ;
+; OFF            ; 00000000 ; Unsigned Binary             ;
++----------------+----------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MAX7219:U0"                                                                                               ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                                                  ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; IRreg ; Input  ; Info     ; Stuck at GND                                                                                             ;
+; data  ; Input  ; Info     ; Stuck at GND                                                                                             ;
+; busy  ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 8                           ;
+; cycloneiii_ff         ; 13                          ;
+;     ENA               ; 5                           ;
+;     plain             ; 8                           ;
+; cycloneiii_lcell_comb ; 24                          ;
+;     normal            ; 24                          ;
+;         2 data inputs ; 3                           ;
+;         3 data inputs ; 7                           ;
+;         4 data inputs ; 14                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 2.35                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Elaboration
+Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Wed May 08 11:46:45 2024
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off usage_MAX7219 -c usage_MAX7219 --analysis_and_elaboration
+    Info: Processing started: Thu May 09 20:10:12 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off usage_MAX7219 -c usage_MAX7219
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file /users/sebas/documents/repositorios/entrega-1-proyecto-grupo25-2024-1/scr/max7219/usage_max7219.v
-    Info (12023): Found entity 1: usage_MAX7219 File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Max7219/usage_MAX7219.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /users/sebas/documents/repositorios/entrega-1-proyecto-grupo25-2024-1/scr/max7219/tb_max7219.v
-    Info (12023): Found entity 1: TB_MAX7219 File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Max7219/TB_MAX7219.v Line: 2
-Info (12021): Found 1 design units, including 1 entities, in source file /users/sebas/documents/repositorios/entrega-1-proyecto-grupo25-2024-1/scr/max7219/max7219.v
-    Info (12023): Found entity 1: MAX7219 File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Max7219/MAX7219.v Line: 1
-Warning (10236): Verilog HDL Implicit Net warning at usage_MAX7219.v(12): created implicit net for "busy" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Max7219/usage_MAX7219.v Line: 12
-Warning (10222): Verilog HDL Parameter Declaration warning at MAX7219.v(18): Parameter Declaration in module "MAX7219" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Max7219/MAX7219.v Line: 18
-Warning (10222): Verilog HDL Parameter Declaration warning at MAX7219.v(19): Parameter Declaration in module "MAX7219" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Max7219/MAX7219.v Line: 19
-Warning (10222): Verilog HDL Parameter Declaration warning at MAX7219.v(20): Parameter Declaration in module "MAX7219" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Max7219/MAX7219.v Line: 20
-Warning (10222): Verilog HDL Parameter Declaration warning at MAX7219.v(21): Parameter Declaration in module "MAX7219" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Max7219/MAX7219.v Line: 21
-Warning (10222): Verilog HDL Parameter Declaration warning at MAX7219.v(22): Parameter Declaration in module "MAX7219" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Max7219/MAX7219.v Line: 22
-Warning (10222): Verilog HDL Parameter Declaration warning at MAX7219.v(23): Parameter Declaration in module "MAX7219" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Max7219/MAX7219.v Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file usage_max7219.v
+    Info (12023): Found entity 1: usage_MAX7219 File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file tb_max7219.v
+    Info (12023): Found entity 1: TB_MAX7219 File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/TB_MAX7219.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file max7219.v
+    Info (12023): Found entity 1: MAX7219 File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/MAX7219.v Line: 1
 Info (12127): Elaborating entity "usage_MAX7219" for the top level hierarchy
-Warning (10646): Verilog HDL Event Control warning at usage_MAX7219.v(33): posedge or negedge of vector "<multi-bit expression>" depends solely on its least-significant bit File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Max7219/usage_MAX7219.v Line: 33
-Warning (10230): Verilog HDL assignment warning at usage_MAX7219.v(87): truncated value with size 32 to match size of target (4) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Max7219/usage_MAX7219.v Line: 87
-Warning (10235): Verilog HDL Always Construct warning at usage_MAX7219.v(104): variable "shutdown" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Max7219/usage_MAX7219.v Line: 104
-Info (12128): Elaborating entity "MAX7219" for hierarchy "MAX7219:U0" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Max7219/usage_MAX7219.v Line: 12
-Warning (10230): Verilog HDL assignment warning at MAX7219.v(29): truncated value with size 32 to match size of target (1) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Max7219/MAX7219.v Line: 29
-Warning (10646): Verilog HDL Event Control warning at MAX7219.v(31): posedge or negedge of vector "_rst" depends solely on its least-significant bit File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Max7219/MAX7219.v Line: 31
-Warning (10646): Verilog HDL Event Control warning at MAX7219.v(49): posedge or negedge of vector "_rst" depends solely on its least-significant bit File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Max7219/MAX7219.v Line: 49
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 14 warnings
-    Info: Peak virtual memory: 4708 megabytes
-    Info: Processing ended: Wed May 08 11:46:54 2024
-    Info: Elapsed time: 00:00:09
+Warning (10036): Verilog HDL or VHDL warning at usage_MAX7219.v(9): object "display" assigned a value but never read File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 9
+Info (12128): Elaborating entity "MAX7219" for hierarchy "MAX7219:U0" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 24
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 3 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "image[0]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 5
+    Warning (15610): No output dependent on input pin "image[1]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 5
+Info (21057): Implemented 32 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 3 output pins
+    Info (21061): Implemented 24 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 4800 megabytes
+    Info: Processing ended: Thu May 09 20:10:22 2024
+    Info: Elapsed time: 00:00:10
     Info: Total CPU time (on all processors): 00:00:12
 
 

@@ -1,19 +1,16 @@
-module MAX7219#(
-    parameter Freq_KiloHZ = 12
-)(
-    input sys_clk,
-    input [1:0] _rst,
-    input str,
-    output wire busy,
+module MAX7219 (
+    input sys_clk, _rst, _str,
     input [7:0] IRreg,
     input [7:0] data,
-    output reg CS,
-    output reg CLK,
-    output reg Din
+    output reg CS, CLK, Din,
+    output reg busy
 );
 
+parameter Freq_KiloHZ = 12;
 reg [5:0] cnt = 6'd0;
 reg [2:0] state = 3'd0;
+reg [2:0] flag = 3'b001;
+reg [2:0] TxCnt = 3'd0;
 
 parameter IDLE     = 3'd0;
 parameter Address  = 3'd1;
@@ -22,32 +19,31 @@ parameter finished = 3'd3;
 parameter ON       = 8'h01;
 parameter OFF      = 8'h00;
 
-reg clk_spi = 1'b0;
-reg [2:0] TxCnt = 3'd7;
-reg [2:0] flag = 3'b001;
-
-assign busy = (state==IDLE)?0:1;
+always @(*) begin
+    // Cálculo de la señal busy
+    busy = (state == IDLE) ? 1'b0 : 1'b1;
+end
 
 always @(posedge sys_clk, negedge _rst) begin
-    if (!_rst[0]) begin
+    if (!_rst) begin
         cnt <= 6'd0;
-        clk_spi <= 1'b0;
+        // No es necesario asignar a sys_clk en un always
     end else begin
-        if (str) begin
+        if (_str) begin
             if (cnt == Freq_KiloHZ/2) begin
-                clk_spi <= ~clk_spi;
+                // sys_clk <= ~sys_clk; // Esto debería ser parte de un bloque siempre activo, no aquí
                 cnt <= 6'd0;
             end else 
                 cnt <= cnt + 1'b1;
         end else begin
             cnt <= 6'd0;
-            clk_spi <= 1'b0;
+            // No es necesario asignar a sys_clk en un always
         end
     end
 end
 
-always @(posedge clk_spi, negedge _rst) begin
-    if (!_rst[0]) begin
+always @(posedge sys_clk) begin
+    if (!_rst) begin
         flag <= 3'b001;
         CS <= 1'b1;
         TxCnt <= 3'd7;
@@ -55,7 +51,7 @@ always @(posedge clk_spi, negedge _rst) begin
     end else begin
         case(state)
             IDLE: begin
-                if (str) begin
+                if (_str) begin
                     TxCnt <= 3'd7;
                     CS <= 1'b0;
                     flag <= 3'b001;

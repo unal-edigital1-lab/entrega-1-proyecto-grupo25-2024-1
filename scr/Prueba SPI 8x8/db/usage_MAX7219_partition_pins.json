@@ -4,10 +4,6 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "Din",
-					"strict" : false
-				},
-				{
 					"name" : "CS",
 					"strict" : false
 				},
@@ -16,11 +12,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "shutdown",
-					"strict" : false
-				},
-				{
-					"name" : "_rst[0]",
+					"name" : "Din",
 					"strict" : false
 				},
 				{
@@ -28,7 +20,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "_rst[1]",
+					"name" : "_rst",
 					"strict" : false
 				},
 				{
