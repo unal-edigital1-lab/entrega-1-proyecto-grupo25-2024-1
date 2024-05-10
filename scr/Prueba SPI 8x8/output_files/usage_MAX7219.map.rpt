@@ -1,0 +1,553 @@
+Analysis & Synthesis report for usage_MAX7219
+Fri May 10 13:36:44 2024
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |usage_MAX7219|MAX7219:U0|state
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: MAX7219:U0
+ 15. Port Connectivity Checks: "MAX7219:U0"
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri May 10 13:36:44 2024       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; usage_MAX7219                               ;
+; Top-level Entity Name              ; usage_MAX7219                               ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 71                                          ;
+;     Total combinational functions  ; 71                                          ;
+;     Dedicated logic registers      ; 24                                          ;
+; Total registers                    ; 24                                          ;
+; Total pins                         ; 9                                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE10E22C8       ;                    ;
+; Top-level entity name                                            ; usage_MAX7219      ; usage_MAX7219      ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-8         ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                             ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                               ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------+---------+
+; usage_MAX7219.v                  ; yes             ; User Verilog HDL File  ; C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v ;         ;
+; MAX7219.v                        ; yes             ; User Verilog HDL File  ; C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/MAX7219.v       ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary              ;
++---------------------------------------------+------------+
+; Resource                                    ; Usage      ;
++---------------------------------------------+------------+
+; Estimated Total logic elements              ; 71         ;
+;                                             ;            ;
+; Total combinational functions               ; 71         ;
+; Logic element usage by number of LUT inputs ;            ;
+;     -- 4 input functions                    ; 36         ;
+;     -- 3 input functions                    ; 17         ;
+;     -- <=2 input functions                  ; 18         ;
+;                                             ;            ;
+; Logic elements by mode                      ;            ;
+;     -- normal mode                          ; 66         ;
+;     -- arithmetic mode                      ; 5          ;
+;                                             ;            ;
+; Total registers                             ; 24         ;
+;     -- Dedicated logic registers            ; 24         ;
+;     -- I/O registers                        ; 0          ;
+;                                             ;            ;
+; I/O pins                                    ; 9          ;
+;                                             ;            ;
+; Embedded Multiplier 9-bit elements          ; 0          ;
+;                                             ;            ;
+; Maximum fan-out node                        ; _rst~input ;
+; Maximum fan-out                             ; 30         ;
+; Total fan-out                               ; 323        ;
+; Average fan-out                             ; 2.86       ;
++---------------------------------------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                              ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------+---------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name       ; Entity Name   ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------+---------------+--------------+
+; |usage_MAX7219             ; 71 (13)             ; 24 (4)                    ; 0           ; 0            ; 0       ; 0         ; 9    ; 0            ; |usage_MAX7219            ; usage_MAX7219 ; work         ;
+;    |MAX7219:U0|            ; 58 (58)             ; 20 (20)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |usage_MAX7219|MAX7219:U0 ; MAX7219       ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------+---------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------+
+; State Machine - |usage_MAX7219|MAX7219:U0|state                           ;
++----------------+----------------+--------------+---------------+----------+
+; Name           ; state.finished ; state.TxData ; state.Address ; state.00 ;
++----------------+----------------+--------------+---------------+----------+
+; state.00       ; 0              ; 0            ; 0             ; 0        ;
+; state.Address  ; 0              ; 0            ; 1             ; 1        ;
+; state.TxData   ; 0              ; 1            ; 0             ; 1        ;
+; state.finished ; 1              ; 0            ; 0             ; 1        ;
++----------------+----------------+--------------+---------------+----------+
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; display[3][2]                                       ; _rst                ; yes                    ;
+; display[4][2]                                       ; _rst                ; yes                    ;
+; display[3][5]                                       ; _rst                ; yes                    ;
+; display[4][5]                                       ; _rst                ; yes                    ;
+; display[4][0]                                       ; _rst                ; yes                    ;
+; display[3][1]                                       ; _rst                ; yes                    ;
+; display[3][0]                                       ; _rst                ; yes                    ;
+; display[4][1]                                       ; _rst                ; yes                    ;
+; display[4][6]                                       ; _rst                ; yes                    ;
+; display[3][7]                                       ; _rst                ; yes                    ;
+; display[3][6]                                       ; _rst                ; yes                    ;
+; display[4][7]                                       ; _rst                ; yes                    ;
+; display[2][4]                                       ; _rst                ; yes                    ;
+; display[2][1]                                       ; _rst                ; yes                    ;
+; display[2][0]                                       ; _rst                ; yes                    ;
+; display[2][5]                                       ; _rst                ; yes                    ;
+; display[1][2]                                       ; _rst                ; yes                    ;
+; display[1][3]                                       ; _rst                ; yes                    ;
+; display[1][4]                                       ; _rst                ; yes                    ;
+; display[1][5]                                       ; _rst                ; yes                    ;
+; display[2][6]                                       ; _rst                ; yes                    ;
+; display[2][3]                                       ; _rst                ; yes                    ;
+; display[2][2]                                       ; _rst                ; yes                    ;
+; display[2][7]                                       ; _rst                ; yes                    ;
+; display[0][4]                                       ; _rst                ; yes                    ;
+; display[0][5]                                       ; _rst                ; yes                    ;
+; display[0][2]                                       ; _rst                ; yes                    ;
+; display[0][3]                                       ; _rst                ; yes                    ;
+; display[5][6]                                       ; _rst                ; yes                    ;
+; display[5][5]                                       ; _rst                ; yes                    ;
+; display[5][7]                                       ; _rst                ; yes                    ;
+; display[6][2]                                       ; _rst                ; yes                    ;
+; display[6][1]                                       ; _rst                ; yes                    ;
+; display[6][0]                                       ; _rst                ; yes                    ;
+; display[6][3]                                       ; _rst                ; yes                    ;
+; display[5][0]                                       ; _rst                ; yes                    ;
+; display[5][2]                                       ; _rst                ; yes                    ;
+; display[5][1]                                       ; _rst                ; yes                    ;
+; display[6][6]                                       ; _rst                ; yes                    ;
+; display[6][5]                                       ; _rst                ; yes                    ;
+; display[6][4]                                       ; _rst                ; yes                    ;
+; display[6][7]                                       ; _rst                ; yes                    ;
+; display[7][4]                                       ; _rst                ; yes                    ;
+; display[7][1]                                       ; _rst                ; yes                    ;
+; display[7][5]                                       ; _rst                ; yes                    ;
+; display[7][2]                                       ; _rst                ; yes                    ;
+; display[7][6]                                       ; _rst                ; yes                    ;
+; display[7][3]                                       ; _rst                ; yes                    ;
+; Number of user-specified and inferred latches = 48  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; MAX7219:U0|state~7                    ; Lost fanout        ;
+; MAX7219:U0|state~8                    ; Lost fanout        ;
+; Total Number of Removed Registers = 2 ;                    ;
++---------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 24    ;
+; Number of registers using Synchronous Clear  ; 6     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 22    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 6     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; MAX7219:U0|CS                          ; 2       ;
+; MAX7219:U0|flag[0]                     ; 6       ;
+; MAX7219:U0|TxCnt[2]                    ; 13      ;
+; MAX7219:U0|TxCnt[1]                    ; 15      ;
+; MAX7219:U0|TxCnt[0]                    ; 12      ;
+; Total number of inverted registers = 5 ;         ;
++----------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |usage_MAX7219|MAX7219:U0|cnt[5]    ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |usage_MAX7219|MAX7219:U0|flag[2]   ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |usage_MAX7219|MAX7219:U0|TxCnt[2]  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |usage_MAX7219|MAX7219:U0|Selector7 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MAX7219:U0 ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; Freq_KiloHZ    ; 12    ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------+
+; Port Connectivity Checks: "MAX7219:U0"        ;
++-------------+-------+----------+--------------+
+; Port        ; Type  ; Severity ; Details      ;
++-------------+-------+----------+--------------+
+; IRreg[7..4] ; Input ; Info     ; Stuck at GND ;
++-------------+-------+----------+--------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 9                           ;
+; cycloneiii_ff         ; 24                          ;
+;     CLR               ; 11                          ;
+;     CLR SCLR          ; 6                           ;
+;     ENA               ; 1                           ;
+;     ENA CLR           ; 5                           ;
+;     plain             ; 1                           ;
+; cycloneiii_lcell_comb ; 72                          ;
+;     arith             ; 5                           ;
+;         2 data inputs ; 5                           ;
+;     normal            ; 67                          ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 11                          ;
+;         3 data inputs ; 17                          ;
+;         4 data inputs ; 36                          ;
+;                       ;                             ;
+; Max LUT depth         ; 7.00                        ;
+; Average LUT depth     ; 3.25                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Fri May 10 13:36:34 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off usage_MAX7219 -c usage_MAX7219
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file usage_max7219.v
+    Info (12023): Found entity 1: usage_MAX7219 File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file max7219.v
+    Info (12023): Found entity 1: MAX7219 File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/MAX7219.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at usage_MAX7219.v(12): created implicit net for "busy" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 12
+Warning (10222): Verilog HDL Parameter Declaration warning at MAX7219.v(9): Parameter Declaration in module "MAX7219" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/MAX7219.v Line: 9
+Warning (10222): Verilog HDL Parameter Declaration warning at MAX7219.v(10): Parameter Declaration in module "MAX7219" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/MAX7219.v Line: 10
+Warning (10222): Verilog HDL Parameter Declaration warning at MAX7219.v(11): Parameter Declaration in module "MAX7219" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/MAX7219.v Line: 11
+Warning (10222): Verilog HDL Parameter Declaration warning at MAX7219.v(12): Parameter Declaration in module "MAX7219" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/MAX7219.v Line: 12
+Warning (10222): Verilog HDL Parameter Declaration warning at MAX7219.v(13): Parameter Declaration in module "MAX7219" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/MAX7219.v Line: 13
+Warning (10222): Verilog HDL Parameter Declaration warning at MAX7219.v(14): Parameter Declaration in module "MAX7219" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/MAX7219.v Line: 14
+Info (12127): Elaborating entity "usage_MAX7219" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at usage_MAX7219.v(85): truncated value with size 32 to match size of target (4) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 85
+Warning (10235): Verilog HDL Always Construct warning at usage_MAX7219.v(102): variable "shutdown" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 102
+Info (10041): Inferred latch for "display[0][0]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[0][1]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[0][2]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[0][3]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[0][4]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[0][5]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[0][6]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[0][7]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[1][0]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[1][1]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[1][2]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[1][3]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[1][4]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[1][5]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[1][6]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[1][7]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[2][0]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[2][1]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[2][2]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[2][3]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[2][4]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[2][5]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[2][6]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[2][7]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[3][0]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[3][1]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[3][2]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[3][3]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[3][4]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[3][5]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[3][6]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[3][7]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[4][0]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[4][1]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[4][2]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[4][3]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[4][4]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[4][5]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[4][6]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[4][7]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[5][0]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[5][1]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[5][2]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[5][3]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[5][4]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[5][5]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[5][6]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[5][7]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[6][0]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[6][1]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[6][2]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[6][3]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[6][4]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[6][5]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[6][6]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[6][7]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[7][0]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[7][1]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[7][2]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[7][3]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[7][4]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[7][5]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[7][6]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (10041): Inferred latch for "display[7][7]" at usage_MAX7219.v(30) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (12128): Elaborating entity "MAX7219" for hierarchy "MAX7219:U0" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 12
+Warning (10230): Verilog HDL assignment warning at MAX7219.v(17): truncated value with size 32 to match size of target (1) File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/MAX7219.v Line: 17
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "display[5][7]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[5][0]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[4][7]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[4][5]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[4][2]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[4][0]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[3][7]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[3][6]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[3][5]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[3][1]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[3][0]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[2][7]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[2][6]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[2][4]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[2][3]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[2][1]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[2][0]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[1][5]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[1][4]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[1][3]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[1][2]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[0][5]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[0][4]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[0][3]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[0][2]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[6][2]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[6][3]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[6][4]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[6][5]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[7][2]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[7][3]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[7][4]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[7][5]" merged with LATCH primitive "display[3][2]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[4][6]" merged with LATCH primitive "display[4][1]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[2][2]" merged with LATCH primitive "display[2][5]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[5][5]" merged with LATCH primitive "display[2][5]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[5][2]" merged with LATCH primitive "display[2][5]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[5][1]" merged with LATCH primitive "display[5][6]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[6][6]" merged with LATCH primitive "display[6][1]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[6][7]" merged with LATCH primitive "display[6][0]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[7][1]" merged with LATCH primitive "display[6][0]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+    Info (13026): Duplicate LATCH primitive "display[7][6]" merged with LATCH primitive "display[6][0]" File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/usage_MAX7219.v Line: 30
+Info (13000): Registers with preset signals will power-up high File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba SPI 8x8/MAX7219.v Line: 5
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 81 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 3 output pins
+    Info (21061): Implemented 72 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
+    Info: Peak virtual memory: 4799 megabytes
+    Info: Processing ended: Fri May 10 13:36:44 2024
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:12
+
+

@@ -1,0 +1,45 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "Din",
+					"strict" : false
+				},
+				{
+					"name" : "CS",
+					"strict" : false
+				},
+				{
+					"name" : "CLK",
+					"strict" : false
+				},
+				{
+					"name" : "shutdown",
+					"strict" : false
+				},
+				{
+					"name" : "_rst",
+					"strict" : false
+				},
+				{
+					"name" : "_str",
+					"strict" : false
+				},
+				{
+					"name" : "image[1]",
+					"strict" : false
+				},
+				{
+					"name" : "image[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sys_clk",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

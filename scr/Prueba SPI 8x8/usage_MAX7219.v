@@ -61,14 +61,15 @@ reg [22:0]cnt = 'd0;
 					display[7] <= 8'b01111110;
 				end
 				2'b11: begin
-					display[0] <= 8'b11111111;
-					display[1] <= 8'b10111101;
-					display[2] <= 8'b11011011;
-					display[3] <= 8'b11100111;
-					display[4] <= 8'b11100111;
-					display[5] <= 8'b11011011;
-					display[6] <= 8'b10111101;
-					display[7] <= 8'b11111111;
+					display[0] <= 8'b00000000;
+					display[1] <= 8'b01000010;
+					display[2] <= 8'b00100100;
+					display[3] <= 8'b00011000;
+					display[4] <= 8'b00011000;
+					display[5] <= 8'b00100100;
+					display[6] <= 8'b01000010;
+					display[7] <= 8'b00000000;
+
 				end
 				default: begin
 					// Código por defecto si no se cumple ninguna de las condiciones anteriores
