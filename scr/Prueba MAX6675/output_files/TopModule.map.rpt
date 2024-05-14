@@ -1,5 +1,5 @@
 Analysis & Synthesis report for TopModule
-Fri May 10 11:01:55 2024
+Mon May 13 15:39:45 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Fri May 10 11:01:55 2024           ;
+; Analysis & Synthesis Status        ; Failed - Mon May 13 15:39:45 2024           ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; TopModule                                   ;
 ; Top-level Entity Name              ; TopModule                                   ;
@@ -162,28 +162,24 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri May 10 11:01:47 2024
+    Info: Processing started: Mon May 13 15:39:35 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TopModule -c TopModule
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file topmodule.v
-    Info (12023): Found entity 1: TopModule File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba MAX6675/TopModule.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file temperaturecontroller.v
-    Info (12023): Found entity 1: TemperatureController File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba MAX6675/TemperatureController.v Line: 1
+Error (10759): Verilog HDL error at TopModule.v(10): object temperature declared in a list of port declarations cannot be redeclared within the module body File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba MAX6675/TopModule.v Line: 10
+Error (10112): Ignored design unit "TopModule" at TopModule.v(1) due to previous errors File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba MAX6675/TopModule.v Line: 1
+Info (12021): Found 0 design units, including 0 entities, in source file topmodule.v
+Error (10170): Verilog HDL syntax error at TemperatureController.v(21) near text: "endcase";  expecting an operand. Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba MAX6675/TemperatureController.v Line: 21
+Info (12021): Found 0 design units, including 0 entities, in source file temperaturecontroller.v
 Info (12021): Found 1 design units, including 1 entities, in source file sevensegmentdisplay.v
     Info (12023): Found entity 1: SevenSegmentDisplay File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba MAX6675/SevenSegmentDisplay.v Line: 1
-Warning (10229): Verilog HDL Expression warning at MAX6675.v(48): truncated literal to match 12 bits File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba MAX6675/MAX6675.v Line: 48
+Warning (10229): Verilog HDL Expression warning at MAX6675.v(24): truncated literal to match 4 bits File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba MAX6675/MAX6675.v Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file max6675.v
-    Info (12023): Found entity 1: MAX6675 File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba MAX6675/MAX6675.v Line: 1
-Info (12127): Elaborating entity "TopModule" for the top level hierarchy
-Error (10663): Verilog HDL Port Connection error at TopModule.v(14): output or inout port "temperature" must be connected to a structural net expression File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba MAX6675/TopModule.v Line: 14
-Error (10663): Verilog HDL Port Connection error at TopModule.v(15): output or inout port "seg_data" must be connected to a structural net expression File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba MAX6675/TopModule.v Line: 15
-Error (10663): Verilog HDL Port Connection error at TopModule.v(16): output or inout port "dp" must be connected to a structural net expression File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba MAX6675/TopModule.v Line: 16
-Error (12153): Can't elaborate top-level user hierarchy
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 4 errors, 2 warnings
-    Error: Peak virtual memory: 4708 megabytes
-    Error: Processing ended: Fri May 10 11:01:55 2024
-    Error: Elapsed time: 00:00:08
-    Error: Total CPU time (on all processors): 00:00:11
+    Info (12023): Found entity 1: MAX6675_SPI File: C:/Users/sebas/Documents/Repositorios/entrega-1-proyecto-grupo25-2024-1/scr/Prueba MAX6675/MAX6675.v Line: 1
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 3 errors, 2 warnings
+    Error: Peak virtual memory: 4706 megabytes
+    Error: Processing ended: Mon May 13 15:39:45 2024
+    Error: Elapsed time: 00:00:10
+    Error: Total CPU time (on all processors): 00:00:12
 
 

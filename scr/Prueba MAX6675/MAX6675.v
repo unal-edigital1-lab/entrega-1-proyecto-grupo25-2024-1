@@ -1,53 +1,56 @@
-module MAX6675 (
-    input wire clk,      // Entrada de reloj
-    input wire rst_n,    // Entrada de reset asincrónico (activo bajo)
-    input wire cs,       // Chip select
-    input wire sclk,     // Clock de serial
-    input wire [15:0] din, // Entrada de datos
-    output reg [11:0] temperature // Salida de temperatura en grados Celsius
+module MAX6675_SPI (
+    input wire clk, // Reloj del sistema
+    input wire rst, // Señal de reinicio
+    output reg [11:0] temperature, // Temperatura leída del MAX6675
+    output reg data_ready // Indica cuando los datos están listos para ser leídos
 );
 
-reg [15:0] data_in;
-reg [15:0] data_out;
-reg [3:0] state;
+    // Declara las señales de la interfaz SPI
+    reg CS;
+    reg SCK;
+    wire SO;
 
-always @(posedge clk or negedge rst_n) begin
-    if (!rst_n) begin
-        data_in <= 16'h0000;
-        data_out <= 16'h0000;
-        state <= 4'b0000;
-    end else begin
-        case (state)
-            4'b0000: begin
-                // Esperar a que se active el chip select
-                if (!cs)
-                    state <= 4'b0001;
-            end
-            4'b0001: begin
-                // Leer los datos de salida
-                data_out <= {data_out[14:0], din[15]};
-                state <= 4'b0010;
-            end
-            4'b0010: begin
-                // Muestrear el dato de salida
-                data_in <= data_out;
-                state <= 4'b0011;
-            end
-            4'b0011: begin
-                // Listo para leer el dato de salida
-                state <= 4'b0000;
-            end
-            default: state <= 4'b0000;
-        endcase
+    // Declara las variables internas
+    reg [11:0] data_in;
+    reg [3:0] bit_counter;
+
+    // Máquina de estados para la lectura de datos
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            CS <= 1'b1;
+            SCK <= 1'b0;
+            bit_counter <= 4'b0;
+            data_in <= 12'b0;
+            data_ready <= 1'b0;
+        end else begin
+            case (bit_counter)
+                4'b0000: begin
+                    CS <= 1'b0; // Inicia la lectura de datos
+                    bit_counter <= bit_counter + 1;
+                end
+                4'b0001 to 4'b1100: begin
+                    SCK <= ~SCK; // Cambia el estado del reloj SPI
+                    if (SCK) begin
+                        data_in[bit_counter-2] <= SO; // Lee el bit de datos
+                        bit_counter <= bit_counter + 1;
+                    end
+                end
+                4'b1101: begin
+                    SCK <= 1'b0; // Asegura que el reloj SPI esté en bajo
+                    bit_counter <= bit_counter + 1;
+                end
+                4'b1110: begin
+                    CS <= 1'b1; // Termina la lectura de datos
+                    temperature <= data_in;
+                    data_ready <= 1'b1;
+                    bit_counter <= bit_counter + 1;
+                end
+                4'b1111: begin
+                    data_ready <= 1'b0; // Espera hasta la próxima lectura de datos
+                    bit_counter <= 4'b0;
+                end
+            endcase
+        end
     end
-end
-
-// Convertir datos a temperatura en grados Celsius
-always @(*) begin
-    if (data_in[15:13] == 3'b110)
-        temperature = {4'b0000, data_in[11:3]} - 12'd4096; // Temperatura negativa
-    else
-        temperature = data_in[11:3]; // Temperatura positiva
-end
 
 endmodule

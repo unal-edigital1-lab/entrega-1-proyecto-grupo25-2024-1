@@ -1,0 +1,25 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "temp_bits[0]",
+					"strict" : false
+				},
+				{
+					"name" : "temp_bits[1]",
+					"strict" : false
+				},
+				{
+					"name" : "rst",
+					"strict" : false
+				},
+				{
+					"name" : "dht_data",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

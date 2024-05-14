@@ -1,0 +1,25 @@
+|DHT11
+clk => ~NO_FANOUT~
+rst => data.OUTPUTSELECT
+rst => data.OUTPUTSELECT
+rst => data.OUTPUTSELECT
+rst => data.OUTPUTSELECT
+rst => data.OUTPUTSELECT
+rst => data.OUTPUTSELECT
+rst => data.OUTPUTSELECT
+rst => data.OUTPUTSELECT
+rst => Mux3.IN7
+rst => Mux5.IN7
+rst => Mux13.IN7
+rst => Mux15.IN7
+rst => Mux17.IN7
+rst => Mux15.IN6
+rst => Mux13.IN6
+rst => Mux17.IN4
+rst => Mux17.IN5
+rst => count[0].IN1
+dht_data => data.DATAA
+temp_bits[0] <= temperature[0].DB_MAX_OUTPUT_PORT_TYPE
+temp_bits[1] <= temperature[1].DB_MAX_OUTPUT_PORT_TYPE
+
+

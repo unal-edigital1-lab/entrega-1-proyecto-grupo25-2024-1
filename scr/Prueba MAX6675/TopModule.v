@@ -2,8 +2,10 @@ module TopModule (
     input wire clk,
     input wire rst_n,
     output reg [6:0] seg_data,
-    output reg dp
+    output reg dp,
+    output [11:0] temperature
 );
+
 
 reg [11:0] temperature;
 
